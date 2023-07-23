@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  grafana:
+    image: grafana/grafana-enterprise
+    container_name: grafana-visualization-tool
+    restart: always
+    ports:
+      - 3030:3000
+    volumes:
+      - grafana-storage:/var/lib/grafana
+    networks:
+      - grafana-net
+
+volumes:
+  grafana-storage:
+networks:
+  grafana-net:
+    driver: bridge
